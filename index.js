@@ -7,6 +7,10 @@ const port = 3000;
 var cors = require('cors')
 app.use(cors())
 
+app.get('/', (req, res) => {
+  res.send("Hello wodysl World");
+})
+
 //express
 app.get('/sound/:name', (req, res) => {
   const {name} = req.params;
