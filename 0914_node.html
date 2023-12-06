@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>프론트 웹 개발자가 배워야 할 공부</h1>
+        <form action="" method="" name="" onsubmit="return f()" target="">
+            <input type="text" id="subject" autofocus placeholder="과목명을 입력하세요">
+            <button onclick="register();return false;">추가</button>
+            <button onclick="del();return false;">제거</button>
+            <!--
+                1. <input type="button" onclick="" value="추가">
+                2. <input type="submit" value="추가">
+                3. <input type="image" src="" onclick="">
+            -->
+        </form>
+        <ul id="item">
+
+        </ul>
+    </div>
+    <script>
+        function register(){
+            var k = document.createElement("li");
+            var subject = document.querySelector("#subject");
+            var t = document.createTextNode(subject.value);
+
+            k.appendChild(t);
+            var i = document.querySelector("#item");
+            i.insertBefore(k, i.childNodes[0]);
+
+            subject.value = "";
+            //삭제 
+            var items = document.querySelectorAll("li"); //모든 항목 가져오기
+            for(i=0;i<items.length;i++){
+                items[i].addEventListener("click",function(){ //클릭 했을떄 실행
+                    if(this.parentNode){ //부모 요소가 있으면
+                        this.parentNode.removeChild(this); //자식 요소를 제거
+                    }
+                });
+            }
+        }
+
+        function del() {
+            var subject = document.getElementById("subject");
+            // var t2 = document.createTextNode(subject.value);
+            var text = subject.value;
+            var parent = document.getElementById("item");
+            var items = document.querySelectorAll("li"); // 모든 항목을 가져오기
+            
+            for(j = 0; j < items.length; j++){
+                if (text == items[j].textContent)
+                {
+                    parent.removeChild(items[j])
+                }         
+            }
+        }
+    
+
+    </script>
+</body>
+</html>

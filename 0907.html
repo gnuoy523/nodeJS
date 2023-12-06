@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: #213555;
+            font-family: 'Nanum Myeongjo', serif;
+        }
+        h1{
+            font-size: 5vw;
+            text-align: center;
+        }
+        #container{
+            width: 320px;
+            margin: 50px auto;
+        }
+        .card{
+            position: relative;
+            width: 550px;
+            height: 250px;
+            margin: 20px 10px;
+            border: 1px solid rgb(192, 191, 191);
+            background-color: #fff;
+        }
+        .words{
+            position: absolute;
+            left: 310px;
+            top: 50px;
+            padding: 10px;
+            text-align: center;
+        }
+        img{
+            width: 50%;
+            height: 250px;
+        }
+        @media screen and (min-width:768px) and (max-width:1439px){
+        #container{
+            width: 570px;
+            margin: 50px auto;
+        }
+        .card{
+            position: relative;
+            width: 550px;
+            height: 250px;
+            margin: 20px 10px;
+            border: 1px solid rgb(192, 191, 191);
+            background-color: #fff;
+            
+        }
+        .words{
+            position: absolute;
+            left: 280px;
+            top: 50px;
+            padding: 10px;
+            text-align: center;
+        }
+        img{
+            width: 50%;
+            height: 250px;
+        }
+    }
+    @media screen and (min-width:1440px) {
+        #container{
+            width: 2000px;
+            margin: 50px auto;
+        }
+        .card{
+            position: relative;
+            float: left;
+            width: 500px;
+            height: 250px;
+            margin: 10px;
+            border: 1px solid rgb(192, 191, 191);
+            background-color: #fff;
+        }
+        .words{
+            position: absolute;
+            left: 230px;
+            top: 50px;
+            padding: 10px;
+            text-align: center;
+            width: 35%;
+        }
+        img{
+            width: 30%;
+            height: 250px;
+        }
+    }
+    </style>
+</head>
+<body>
+    <h1>나는 프론트페이지를 <br>만드는 김지영이다.</h1>
+    <div id="container">
+        <div class="card">
+            <img src="./img/blackcat.jpg" alt="">
+            <div class="words">
+                <h2>피할수 없으면 즐겨라 <br>– 로버트 엘리엇</h2>
+            </div>  <!-- words -->
+        </div>  <!-- card -->
+        <div class="card">
+            <img src="./img/cat.jpg" alt="">
+            <div class="words">
+                <h2>문제점을 찾지 말고 해결책을 찾으라 <br>– 헨리포드</h2>
+            </div>  <!-- words -->
+        </div>  <!-- card -->
+        <div class="card">
+            <img src="./img/cat2.jpg" alt="">
+            <div class="words">
+                <h2>자신감 있는 표정을 지으면 자신감이 생긴다. <br>- 찰스다윈</h2>
+            </div>  <!-- words -->
+        </div>  <!-- card -->
+    </div>  <!-- container -->
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>>
+
+    <script>
+        $(function(){
+            var obj =[{
+                "area":"서울"
+            }, {
+                "area":"부산"
+            }, {
+                "area":"전주"
+            }]
+            $(obj).each(function(i, o){
+                console.log(i+":", o);
+            })
+            //$("li").css("color", "red");
+            //$("input").attr("type", "password")
+            //$("input").css("color", "red");
+            //$("#aa").parents().css("border", "2px dashed blue");
+            //$("#food").children().css("color", "red");
+            //$("li:odd").css("border", "2px dashed green");
+            //$("li:even").css("backgroundColor", "yellow");
+            //$("li:nth-child(3n)").css("backgroundColor", "yellowgreen");
+            //$("li:eq(8)").css("backgroundColor", "yellowgreen");
+            //$("li:gt(5)").css("backgroundColor", "yellowgreen");
+            $("li:nth-child(2n+1)").css("text-decoration", "underline");
+        $("button").click(function(){
+            $("#img2>imgg").toggle() // 보였다 ㅎ 안 보였다 ㅎ
+        });
+        $("h2").siblings().css({"color": "red", "border": "2px solid red"});
+        });
+        
+    </script>
+    <style>
+        .siblings * { 
+            display: block;
+            border: 2px solid lightgrey;
+            color: lightgrey;
+            padding: 5px;
+            margin: 15px;
+          }
+        #img2{
+            width: 100%;
+            height: 500px;
+            
+        }
+        #imgg{
+            width: inherit;
+            height: inherit;
+        }
+    </style>
+</head>
+<body >
+    <div id="img2">
+        <img src="img/sero4.jpg" alt="" id="imgg">
+    </div>
+    <img src="img/sero1.jpg" alt="" id="imgg">
+    <br>
+    <button>변환</button>
+    <h1>제이쿼리</h1>
+    <section id="food">
+        <ul>
+            <li>초밥1</li>
+            <li>초밥2</li>
+            <li>초밥3</li>
+            <li>초밥4
+                <span id="aa">굿</span>
+            </li>
+            <li>
+                <ul>
+                    <li>간장</li>
+                </ul>
+                초밥5</li>
+            <li>초밥6</li>
+            <li>초밥7</li>
+            <li>초밥8</li>
+            <li>초밥9</li>
+            <li>초밥10</li>
+        </ul>
+    </section>
+    <input type="text">
+    <div class="siblings">div (parent)
+        <p>p</p>
+        <span>span</span>
+        <h2>h2</h2>
+        <h3>h3</h3>
+        <p>p</p>
+      </div>
+</body>
+</html>

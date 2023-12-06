@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        $(function(){
+            $('.tabmenu>li>a').click(function(){
+                $(this).parent().addClass("active").siblings().removeClass("active");
+                return false;
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="container">
+        <h1>갤러리 만들기</h1>
+        <div id="prod-pic">
+            <img src="img/sero1.jpg" alt="" id="cup" width="365" height="300">
+            <div id="small-pic">
+                <img src="img/sero2.jpg" alt="" class="small">
+                <img src="img/sero3.jpg" alt="" class="small">
+                <img src="img/sero4.jpg" alt="" class="small">
+                <img src="img/sero5.jpg" alt="" class="small">
+                <img src="img/sero6.jpg" alt="" class="small">
+            </div>
+        </div>
+        <h1>탭 만들기</h1>
+        <div class="contents">
+            <ul class="tabmenu">
+                <li class="active"><a href="#">공지사항</a>
+                <div class="notice">
+                    <ul>
+                        <li><a href="#">10월 가을 상품 안내<span>2023.10.05</span></a></li>
+                        <li><a href="#">반품/환불 규정 안내<span>2023.10.06</span></a></li>
+                        <li><a href="#">할인 판매 품목 안내<span>2023.10.07</span></a></li>
+                        <li><a href="#">신규회원 대상 할인 이벤트<span>2023.10.08</span></a></li>
+                        <li><a href="#">가을 세일 이벤트 안내<span></span>2023.10.09</a></li>
+                    </ul>
+                </div>
+                </li>
+                <li class=""><a href="#">게임리스트</a>
+                <div class="game">
+                    <ul>
+                        <li><a href="#">게임 세계 대회 안내<span>2023.10.05</span></a></li>
+                        <li><a href="#">스타크래프트 설명회<span>2023.10.06</span></a></li>
+                        <li><a href="#">애니팡 대회 출전<span>2023.10.07</span></a></li>
+                        <li><a href="#">슈퍼마리오 어린이 대회<span>2023.10.08</span></a></li>
+                        <li><a href="#">게임 학과 설명회<span></span>2023.10.09</a></li>
+                    </ul>
+                </div>
+                </li>
+                <li class=""><a href="#">갤러리</a>
+                <div class="gallery">
+                    <ul>
+                        <li><a href="#"><img src="img/sero9.jpg" alt=""></a></li>
+                        <li><a href="#"><img src="img/sero8.jpg" alt=""></a></li>
+                        <li><a href="#"><img src="img/sero7.jpg" alt=""></a></li>
+                        
+                    </ul>
+                </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        var cup = document.querySelector("#cup");
+        var small =document.querySelectorAll(".small");
+
+        for(let i=0;i<small.length;i++){
+            small[i].addEventListener("click", changePic)
+        }
+
+        function changePic(){
+            var newPic = this.src;
+            cup.setAttribute("src", newPic);
+        }
+    </script>
+</body>
+</html>

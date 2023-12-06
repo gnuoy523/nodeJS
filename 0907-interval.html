@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            text-align: center;
+            background-color: #FAF1E4;
+        }
+        div#old{
+            margin: 10%px auto;
+            border: 10px solid #435334;
+            font-family: 'Libre Baskerville', serif;
+            padding-left: 50px;
+            padding-top: 50px;
+            height: 100px;
+            font-weight: 900;
+            text-align: center;
+        }
+        #gallery{
+            width: 500px;
+            height: 470px;
+            border: 10px solid #435334;
+            padding-top: 0;
+            text-align: center;
+            margin: 0 auto;
+        }
+        #photo{
+            width: 500px;
+            height: 420px;
+        }
+    
+    </style>
+    <script>
+        var num = 1;
+        function gallery(n){
+            if (n){
+                if(num==9){num=1;}
+                num++;
+            }
+            else{
+                if(num==1)
+                {num=9;}
+                else{num--;}
+            }
+
+            var i = document.getElementById("photo");
+            i.setAttribute("src", "./img/sero"+num+".jpg");
+        }
+    </script>
+</head>
+<body>
+    <h3> 자동회전 프로그램</h3>
+    <hr>
+    <div id="old">
+        <span id="span" style="font-size: 60px;">
+       사이버해킹보안과
+    </span>
+</div>
+<script>
+    //var(변수=로컬, 전역변수), let, const(블록변수) 차이점
+    let span=document.getElementById("span");
+    let timeID=setInterval("doRo()", 200);
+
+    function doRo(){
+        let str = span.innerHTML;
+        let first = str.substr(0, 1);
+        let remain = str.substr(1, str.length-1);
+
+        str = remain + first;
+        str = remain + first;
+        str = remain + first;
+        str = remain + first;
+        span.innerHTML = str;
+    }
+</script>
+<h2>Gallery Zone</h2>
+<hr>
+<div id="gallery">
+    <img src="./img/sero1.jpg" id="photo" alt="">
+    <p>
+        <button onclick="gallery(0)">이전</button>
+        <button onclick="gallery(1)">다음</button>
+    </p>
+</div>
+</body>
+</html>

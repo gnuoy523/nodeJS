@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        img{
+            width: 60%;
+            height: 600px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" style="border: 1px solid lightgray;">
+        <div class="mySlides">
+            <img src="./img/ppt1.jpg">
+        </div>
+        <div class="mySlides">
+            <img src="./img/ppt2.jpg">
+        </div>
+        <div class="mySlides">
+            <img src="./img/ppt3.jpg">
+        </div>
+        <div class="mySlides">
+            <img src="./img/ppt4.jpg">
+        </div>
+        <div class="mySlides">
+            <img src="./img/ppt5.jpg">
+        </div>
+        <div class="mySlides">
+            <img src="./img/ppt6.jpg">
+        </div>
+        <div class="mySlides">
+            <img src="./img/ppt7.jpg">
+        </div>
+        <div class="mySlides">
+            <img src="./img/ppt8.jpg">
+        </div>
+    </div>
+    <script>
+        let index = 0;
+
+        function slides(){
+            let i;
+            let s = document.getElementsByClassName('mySlides');
+
+            for(i=0;i<s.length;i++){
+                s[i].style.display="none";
+            }
+            index++;
+
+            if(index>s.length){
+                index = 1;
+            }
+
+            s[index-1].style.display='block';
+            setTimeout(slides, 2000);
+            
+        }
+
+        slides();
+    </script>
+</body>
+</html>

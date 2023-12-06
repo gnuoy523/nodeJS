@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+
+    <style>
+        *{
+            margin: 0 auto;
+        }
+        img{
+            width: 170px;
+            height: 200px;
+        }
+        h3{
+            text-align: center;
+            height: 70px;
+        }
+        .toggler {
+            width: 500px;
+            height: 200px;
+          }
+          #button {
+            padding: .5em 1em;
+            text-decoration: none;
+          }
+          #customButton {
+            display: block;
+            text-align: center;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid black;
+            
+          }
+
+          
+          #customImage {
+            width: 40px;
+            height: 40px;
+            position: absolute;
+            left: 95%;
+            text-align: center;
+            top: 285px;
+          }
+          #effect {
+            position: relative;
+            width: 240px;
+            height: 170px;
+            padding: 0.4em;
+            display: none;
+          }
+          #effect h3 {
+            margin: 0;
+            padding: 0.4em;
+            text-align: center;
+          }
+
+    </style>
+
+    <!-- <script src="https://code.jquery.com/jquery-3.6.0.js"></script> -->
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+
+    <!-- 이미지 바꾸기 -->
+    <script>
+        var isEffectVisible = false;
+    
+        function toggleEffect() {
+          var effect = document.getElementById("effect");
+          if (!isEffectVisible) {
+            effect.style.display = "block";
+            isEffectVisible = true;
+            document.getElementById("customImage").src = "img/blackcat.jpg";
+          } else {
+            effect.style.display = "none";
+            isEffectVisible = false;
+            document.getElementById("customImage").src = "img/sero1.jpg";
+          }
+        }
+    </script>
+
+
+    <script>
+        $( function() {
+          // run the currently selected effect
+          function runEffect() {
+            // get effect type from
+            var selectedEffect = $( "#effectTypes" ).val();
+       
+            // Most effect types need no options passed by default
+            var options = {};
+            // some effects have required parameters
+            if ( selectedEffect === "scale" ) {
+              options = { percent: 50 };
+            } else if ( selectedEffect === "size" ) {
+              options = { to: { width: 200, height: 60 } };
+            }
+       
+            // Run the effect
+            $( "#effect" ).toggle( selectedEffect, options, 500 );
+          };
+       
+          // Set effect from select menu value
+          $( "#button" ).on( "click", function() {
+            runEffect();
+          });
+        } );
+    </script>
+
+    <!-- 버튼 -->
+    <script>
+        function buttonClick() {
+            var effect = document.getElementById("effect");
+            if (effect.style.display === "none") {
+              effect.style.display = "block";
+            } else {
+              effect.style.display = "none";
+            }
+        }
+      </script>
+
+</head>
+<body>
+    <div class="constainer">
+        <!-- 슬라이드바 -->
+    <ul class="bxslider">
+        <li><img src="img/sero1.jpg" /></li>
+        <li><img src="img/sero2.jpg" /></li>
+        <li><img src="img/sero3.jpg" /></li>
+        <li><img src="img/sero4.jpg" /></li>
+        <li><img src="img/sero5.jpg" /></li>
+        <li><img src="img/sero6.jpg" /></li>
+        <li><img src="img/sero7.jpg" /></li>
+        <li><img src="img/sero8.jpg" /></li>
+    </ul>
+    <!-- 토글바 -->
+    <h3 id="customButton" class="ui-widget-header ui-corner-all"><br>2023년 2학기 2학년 프론트앤드<img id="customImage" src="img/blackcat.jpg"></h3>
+    <div class="toggler">
+        
+        <div id="effect" class="ui-widget-content ui-corner-all">
+          <p>
+            Etiam libero neque, luctus a, eleifend nec, semper at, lorem. Sed pede. Nulla lorem metus, adipiscing ut, luctus sed, hendrerit vitae, mi.
+          </p>
+        </div>
+      </div>
+
+      <script>
+        // 요소를 클릭할 때 버튼Click 함수를 호출
+        document.getElementById("customButton").addEventListener("click", buttonClick);
+      </script>
+
+      <script>
+        document.getElementById("customImage").addEventListener("click", toggleEffect);
+      </script>
+
+      <!-- <select name="effects" id="effectTypes">
+        <option value="blind">Blind</option>
+        <option value="bounce">Bounce</option>
+        <option value="clip">Clip</option>
+        <option value="drop">Drop</option>
+        <option value="explode">Explode</option>
+        <option value="fade">Fade</option>
+        <option value="fold">Fold</option>
+        <option value="highlight">Highlight</option>
+        <option value="puff">Puff</option>
+        <option value="pulsate">Pulsate</option>
+        <option value="scale">Scale</option>
+        <option value="shake">Shake</option>
+        <option value="size">Size</option>
+        <option value="slide">Slide</option>
+      </select> -->
+      <!-- <button id="button" class="ui-state-default ui-corner-all">Run Effect</button> -->
+    </div>
+    <script>
+        $('.bxslider').bxSlider({
+            minSlides: 4,
+            maxSlides: 4,
+            slideWidth: 170,
+            slideMargin: 10,
+            ticker: true,
+            speed: 9000
+          });
+    </script>
+</body>
+</html>
