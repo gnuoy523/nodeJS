@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>프론트 웹 개발자가 배워야 할 공부</h1>
+        <form>
+            <input type="text" id="subject" autofocus placeholder="과목명을 입력하세요">
+            <button onclick="register(); return false;">추가</button>
+            <button onclick="deleteSubject(); return false;">삭제</button>
+        </form>
+        <ul id="item">
+
+        </ul>
+    </div>
+    <script>
+        var subjects = []; // 과목을 저장하는 배열
+
+        function register() {
+            var subject = document.querySelector("#subject").value;
+            if (subject.trim() === "") {
+                alert("과목명을 입력하세요.");
+                return;
+            }
+
+            subjects.push(subject); // 배열에 과목 추가
+
+            var listItem = document.createElement("li");
+            listItem.innerHTML = subject;
+
+            var itemList = document.querySelector("#item");
+            itemList.appendChild(listItem);
+
+            document.querySelector("#subject").value = "";
+        }
+
+        function deleteSubject() {
+            var subjectToDelete = document.querySelector("#subject").value;
+            if (subjectToDelete.trim() === "") {
+                alert("삭제할 과목명을 입력하세요.");
+                return;
+            }
+
+            var itemList = document.querySelector("#item");
+            var items = itemList.getElementsByTagName("li");
+
+            for (var i = 0; i < items.length; i++) {
+                var item = items[i];
+                if (item.innerText === subjectToDelete) {
+                    subjects.splice(i, 1); // 배열에서 과목 삭제
+                    itemList.removeChild(item); // 뷰에서 해당 항목 삭제
+                    document.querySelector("#subject").value = "";
+                    return;
+                }
+            }
+
+            alert("삭제할 과목을 찾을 수 없습니다.");
+        }
+    </script>
+</body>
+</html>
